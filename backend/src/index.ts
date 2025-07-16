@@ -1,7 +1,9 @@
 import express from "express";
 import authRoutes from "../src/routes/user";
+import urlRoutes from "../src/routes/url";
 import dotenv from "dotenv";
 import { connectToDB } from "./db/db";
+import useragent from "express-useragent";
 
 dotenv.config();
 
@@ -13,7 +15,10 @@ const PORT = process.env.PORT;
 
 //middleware
 app.use(express.json());
+app.use(useragent.express())
+
 app.use("/api/auth", authRoutes);
+app.use("/api/url", urlRoutes);
 
 app.listen(3000, () => console.log(`server running on ${PORT}`)
 )
