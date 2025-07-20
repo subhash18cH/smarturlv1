@@ -23,11 +23,12 @@ const Signin = () => {
       setLoading(true);
       const response = await api.post("/api/auth/login", logindata);
       if (response.status === 200) {
-        toast.success("Register Successfull");
+        toast.success("Login Successfull");
+        localStorage.setItem("JWT", response.data.token)
         navigate("/home")
       }
     } catch (error) {
-      toast.error("Error in sending request")
+      toast.error(error?.response?.data?.message)
     } finally {
       setLoading(false);
     }
@@ -85,7 +86,7 @@ const Signin = () => {
             <button
               disabled={loading}
               type='submit'
-              className='bg-[#5052ce] hover:bg-[#3f4191] text-white font-semibold px-4 py-2 rounded-md w-full'>{loading ? "Loading..." : "Log In"}</button>
+              className={`bg-[#5052ce] hover:bg-[#3f4191] text-white font-semibold px-4 py-2 ${loading? "cursor-not-allowed":"cursor-pointer"} cursor-pointer rounded-md w-full`}>{loading ? "Loading..." : "Log In"}</button>
           </div>
 
           <div className='text-center'>

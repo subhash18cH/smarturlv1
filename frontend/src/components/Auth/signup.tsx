@@ -29,7 +29,7 @@ const Signup = () => {
         navigate("/signin")
       }
     } catch (error) {
-      toast.error("Error in sending request")
+      toast.error(error?.response?.data?.message)
     } finally {
       setLoading(false);
     }
@@ -100,7 +100,7 @@ const Signup = () => {
             <button
               disabled={loading}
               type='submit'
-              className='bg-[#5052ce] hover:bg-[#3f4191] text-white font-semibold px-4 py-2 rounded-md w-full'>{loading ? "Loading..." : "Sign Up"}</button>
+              className={`bg-[#5052ce] hover:bg-[#3f4191] ${loading ? "cursor-not-allowed" : "cursor-pointer"} text-white font-semibold px-4 py-2 rounded-md w-full`}>{loading ? "Loading..." : "Sign Up"}</button>
           </div>
 
           <div className='text-center'>

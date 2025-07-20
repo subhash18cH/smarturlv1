@@ -48,10 +48,6 @@ export const getUserUrls = async (req: AuthenticateRequest, res: Response): Prom
       return;
     }
     const urls = await Url.find({ ownerUserId: user_id });
-    if (!urls || urls.length === 0) {
-      res.status(400).json({ message: "Urls not found for this user" });
-      return;
-    }
     res.status(200).json(urls);
   } catch (error) {
     res.status(500).json({ message: "Error in shortening URl" });
