@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const user_1 = __importDefault(require("../src/routes/user"));
-const url_1 = __importDefault(require("../src/routes/url"));
-const qr_1 = __importDefault(require("../src/routes/qr"));
+const user_1 = __importDefault(require("./routes/user"));
+const url_1 = __importDefault(require("./routes/url"));
+const qr_1 = __importDefault(require("./routes/qr"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = require("./db/db");
 const express_useragent_1 = __importDefault(require("express-useragent"));
