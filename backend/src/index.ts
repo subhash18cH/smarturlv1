@@ -1,7 +1,7 @@
 import express from "express";
-import authRoutes from "../src/routes/user";
-import urlRoutes from "../src/routes/url";
-import qrCodeRoutes from "../src/routes/qr";
+import authRoutes from "./routes/user"
+import urlRoutes from "./routes/url"
+import qrCodeRoutes from "./routes/qr"
 import dotenv from "dotenv";
 import { connectToDB } from "./db/db";
 import useragent from "express-useragent";
