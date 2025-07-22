@@ -131,7 +131,7 @@ const AnalyticsPage = () => {
 
       const deviceType: Record<string, number> = {};
 
-      resData.deviceClicksArray.forEach(item => {
+      (resData.deviceClicksArray as DeviceClicks[]).forEach(item => {
         for (const [device, count] of Object.entries(item.deviceClicks)) {
           deviceType[device] = (deviceType[device] || 0) + count;
         }
@@ -154,26 +154,26 @@ const AnalyticsPage = () => {
     }
   };
 
- const deviceData = {
-  labels: Object.keys(deviceStats?.deviceType || {}),
-  datasets: [
-    {
-      data: Object.values(deviceStats?.deviceType || {}),
-      backgroundColor: [
-        'rgba(75, 117, 163)',
-        'rgba(81, 197, 164)',
-        'rgba(16, 185, 129, 0.8)'
-      ],
-      borderColor: [
-        'rgb(75, 117, 163)',
-        'rgb(81, 197, 164)',
-        'rgb(16, 185, 129)'
-      ],
-      borderWidth: 1,
-      hoverOffset: 15
-    }
-  ]
-};
+  const deviceData = {
+    labels: Object.keys(deviceStats?.deviceType || {}),
+    datasets: [
+      {
+        data: Object.values(deviceStats?.deviceType || {}),
+        backgroundColor: [
+          'rgba(75, 117, 163)',
+          'rgba(81, 197, 164)',
+          'rgba(16, 185, 129, 0.8)'
+        ],
+        borderColor: [
+          'rgb(75, 117, 163)',
+          'rgb(81, 197, 164)',
+          'rgb(16, 185, 129)'
+        ],
+        borderWidth: 1,
+        hoverOffset: 15
+      }
+    ]
+  };
 
   const doughnutOptions = {
     responsive: true,
