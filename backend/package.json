@@ -22,7 +22,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.2",
     "nanoid": "^5.1.5",
-    "qrcode": "^1.5.4"
+    "qrcode": "^1.5.4",
+    "ua-parser-js": "^2.0.4"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

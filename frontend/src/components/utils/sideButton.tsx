@@ -5,7 +5,8 @@ interface SideButtonProps {
   route: string,
   label: string,
   icon: ReactNode,
-  isLogout?: boolean
+  isLogout?: boolean,
+  onClick?: () => void
 
 }
 const SideButton = ({ route, label, icon, isLogout }: SideButtonProps) => {

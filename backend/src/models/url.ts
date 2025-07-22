@@ -5,7 +5,8 @@ export interface URLMapping extends Document {
   shortURL: string;
   ownerUserId: mongoose.Types.ObjectId;
   click_count: number;
-  qrCode?: string
+  qrCode?: string,
+  deviceClicks?: Record<string, number>;
 }
 
 export const urlSchema: Schema<URLMapping> = new Schema({
@@ -31,7 +32,12 @@ export const urlSchema: Schema<URLMapping> = new Schema({
   qrCode: {
     type: String,
     default: ""
+  },
+  deviceClicks: {
+    type: Object,
+    default: {}
   }
-})
+
+}, { timestamps: true })
 
 export const Url: Model<URLMapping> = mongoose.model<URLMapping>("url", urlSchema)
